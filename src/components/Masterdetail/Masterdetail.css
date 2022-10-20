@@ -8,6 +8,7 @@
     width: 50%;
     background-color: yellow;
     color: black;
+    overflow: auto;
 }
 .list div{
     color:black
