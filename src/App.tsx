@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { GitHubList } from "./components/GithubList";
-import { MasterDetail, Item, Detail } from "./components/MasterDetail";
+import { MasterDetail, Item, Detail } from "./components/Masterdetail/MasterDetail";
 import { transformValue } from "./Question3/jsQuestion";
 
 const question3Logging = () => {

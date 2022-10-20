@@ -1,0 +1,19 @@
+.container{
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+    display: flex;
+}
+.list{
+    width: 50%;
+    background-color: yellow;
+    color: black;
+}
+.list div{
+    color:black
+}
+.detail{
+    width: 50%;
+    background-color: greenyellow;
+    color:white
+}
