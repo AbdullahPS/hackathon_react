@@ -24,7 +24,6 @@ export interface MasterDetailProps {
 }
 
 export const MasterDetail: React.FC<MasterDetailProps> = ({ children = [] }) => {
-	console.log(children)
 	const [detail,setDetail]=useState('');
 	const displayDetail=()=>{
 		if(detail!=='')
