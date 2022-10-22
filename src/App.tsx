@@ -19,11 +19,7 @@ const question3Logging = () => {
 };
 
 const App = () => {
-  const [detail,setDetail]=useState<Payload>({...defaulstate.detail});
-  const updateDetail=(newDetail:Payload)=>{
-    setDetail(newDetail)
-  }
-
+ 
 
 return(
   <>
@@ -48,15 +44,13 @@ return(
     `}
       </code>
     </pre>
-    <DetailContext.Provider value={{detail,updateDetail}}>
-    <MasterDetail detail={detail} setDetail={setDetail}>
+    <MasterDetail>
       <Item payload={{content: "Hello Peers"}}>Intro</Item>
       <Item payload={{content: "Welcome to Cool Company"}}>Welcome</Item>
       <Detail>
         {(payload) => payload.content}
       </Detail>
     </MasterDetail>
-    </DetailContext.Provider>
     <h2>Task 2 - Graphql</h2>
     <p>
       Query a list of all public repos of "facebook" via the{" "}

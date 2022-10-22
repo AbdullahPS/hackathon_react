@@ -1,6 +1,6 @@
-import React, { Dispatch, ReactElement,SetStateAction } from 'react';
+import React, { Dispatch, ReactElement,SetStateAction, useState } from 'react';
 import './Masterdetail.css';
-import { useDetailContext } from '../components/context/context';
+import { defaulstate, DetailContext, useDetailContext } from '../components/context/context';
 
 export type Payload = Record<string, any>;
 
@@ -23,19 +23,23 @@ export const Detail: React.FC<DetailProps> = (props) => {
 
 export interface MasterDetailProps {
 	children?: (ReactElement<DetailProps> | ReactElement<ItemProps>)[];
-	setDetail:Dispatch<SetStateAction<Payload>>
-	detail:Payload
+	
 
 }
 
 export const MasterDetail: React.FC<MasterDetailProps> = ({ children = [] }) => {
-	const {updateDetail}=useDetailContext();
-	console.log(children[0].props)
+	 const [detail,setDetail]=useState<Payload>({...defaulstate.detail});
+  const updateDetail=(newDetail:Payload)=>{
+    setDetail(newDetail)
+  }
 
-	return (
+
+	return (<DetailContext.Provider value={{detail,updateDetail}}>
 		<div className='container'>
 			<div className='list'>{children.filter(child => child.type === Item).map(child=><div onClick={()=>updateDetail(child.props)}>{child}</div>)}</div>
 			<div className='detail'>{children.filter(child => child.type === Detail)[0]}</div>
 		</div>
+	</DetailContext.Provider>
+		
 	);
 };
