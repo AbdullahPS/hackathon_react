@@ -48,7 +48,7 @@ return(
       <Item payload={{content: "Hello Peers"}}>Intro</Item>
       <Item payload={{content: "Welcome to Cool Company"}}>Welcome</Item>
       <Detail>
-        {(payload) => payload.content}
+      {(payload) => payload.content}
       </Detail>
     </MasterDetail>
     <h2>Task 2 - Graphql</h2>
@@ -69,7 +69,7 @@ return(
       complete Task 1 provide the same functionality without the MasterDetail
       component.
     </p>
-    <GitHubList />
+<GitHubList></GitHubList>
     <h2>Task 3 - Javascript</h2>
     <p>
       Implement a function which takes a arbitrary nested JS Object and do the

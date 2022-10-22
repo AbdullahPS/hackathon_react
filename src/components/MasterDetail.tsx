@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactElement,SetStateAction, useState } from 'react';
+import React, {ReactElement, useState } from 'react';
 import './Masterdetail.css';
 import { defaulstate, DetailContext, useDetailContext } from '../components/context/context';
 
@@ -22,13 +22,14 @@ export const Detail: React.FC<DetailProps> = (props) => {
 }
 
 export interface MasterDetailProps {
-	children?: (ReactElement<DetailProps> | ReactElement<ItemProps>)[];
+	children?: (ReactElement<DetailProps> | ReactElement<ItemProps>|ReactElement)[];
 	
 
 }
 
 export const MasterDetail: React.FC<MasterDetailProps> = ({ children = [] }) => {
 	 const [detail,setDetail]=useState<Payload>({...defaulstate.detail});
+	 console.log(children)
   const updateDetail=(newDetail:Payload)=>{
     setDetail(newDetail)
   }
