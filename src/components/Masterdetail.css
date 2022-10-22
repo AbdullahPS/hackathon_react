@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    width: 100%;
+}
+
+.list{
+    width: 50%;
+    background-color: black;
+    margin: 20px;
+
+}
+
+.listItem{
+    width: 100%;
+    border-radius: 8px;
+    margin: 2px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.listItem h1{
+    font-size: medium;
+    color: black;
+}
+
+.listItem:hover{
+    background-color: aqua;
+}
+.detail{
+    width: 50%;
+    background-color: blueviolet;
+}

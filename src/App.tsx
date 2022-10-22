@@ -1,7 +1,8 @@
-import React from "react";
+import React, {  useState } from "react";
+import { DetailContext } from "./Question3/context";
 import "./App.css";
 import { GitHubList } from "./components/GithubList";
-import { MasterDetail, Item, Detail } from "./components/MasterDetail";
+import { MasterDetail, Item, Detail, Payload } from "./components/MasterDetail";
 import { transformValue } from "./Question3/jsQuestion";
 
 const question3Logging = () => {
@@ -17,7 +18,14 @@ const question3Logging = () => {
   console.log(JSON.stringify(transformedObject));
 };
 
-const App = () => (
+const App = () => {
+  const [detail,setDetail]=useState<Payload>({content:'hello'});
+  const updateDetail=(newDetail:Payload)=>{
+    setDetail(newDetail)
+  }
+
+
+return(
   <>
     <h1>Welcome to the Frontend Hackathon</h1>
     <h2>Task 1 - React</h2>
@@ -40,13 +48,15 @@ const App = () => (
     `}
       </code>
     </pre>
-    <MasterDetail>
+    <DetailContext.Provider value={{detail,updateDetail}}>
+    <MasterDetail detail={detail} setDetail={setDetail}>
       <Item payload={{content: "Hello Peers"}}>Intro</Item>
       <Item payload={{content: "Welcome to Cool Company"}}>Welcome</Item>
       <Detail>
         {(payload) => payload.content}
       </Detail>
     </MasterDetail>
+    </DetailContext.Provider>
     <h2>Task 2 - Graphql</h2>
     <p>
       Query a list of all public repos of "facebook" via the{" "}
@@ -125,5 +135,5 @@ const App = () => (
     <h2>Best of Luck 🚀</h2>
   </>
 );
-
+}
 export default App;
