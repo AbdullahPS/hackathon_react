@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import { DetailContext } from "./Question3/context";
+import { DetailContext,defaulstate } from "./components/context/context";
 import "./App.css";
 import { GitHubList } from "./components/GithubList";
 import { MasterDetail, Item, Detail, Payload } from "./components/MasterDetail";
@@ -19,7 +19,7 @@ const question3Logging = () => {
 };
 
 const App = () => {
-  const [detail,setDetail]=useState<Payload>({content:'hello'});
+  const [detail,setDetail]=useState<Payload>({...defaulstate.detail});
   const updateDetail=(newDetail:Payload)=>{
     setDetail(newDetail)
   }

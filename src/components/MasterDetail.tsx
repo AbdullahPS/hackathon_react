@@ -1,6 +1,6 @@
 import React, { Dispatch, ReactElement,SetStateAction } from 'react';
 import './Masterdetail.css';
-import { useDetailContext } from '../Question3/context';
+import { useDetailContext } from '../components/context/context';
 
 export type Payload = Record<string, any>;
 
@@ -18,7 +18,7 @@ export interface DetailProps {
 export const Detail: React.FC<DetailProps> = (props) => {
 	const {detail}=useDetailContext()
 	console.log(detail)
-	return <div>{props.children(detail.payload?detail.payload:detail)}</div>
+	return <div>{props.children(detail.payload)}</div>
 }
 
 export interface MasterDetailProps {
