@@ -17,7 +17,6 @@ export interface DetailProps {
 
 export const Detail: React.FC<DetailProps> = (props) => {
 	const {detail}=useDetailContext()
-	console.log(detail)
 	return <div>{props.children(detail.payload)}</div>
 }
 
@@ -29,7 +28,6 @@ export interface MasterDetailProps {
 
 export const MasterDetail: React.FC<MasterDetailProps> = ({ children = [] }) => {
 	 const [detail,setDetail]=useState<Payload>({...defaulstate.detail});
-	 console.log(children)
   const updateDetail=(newDetail:Payload)=>{
     setDetail(newDetail)
   }

@@ -16,18 +16,12 @@ export const GitHubList: React.FC = () => {
   const {data,loading,error}=useQuery(fbQuery)
   const [searchData,setSearchData]=useState<IChild[]>([]);
   useEffect(()=>{
-console.log(data,loading,error);
-data&&setSearchData(data.search.edges)
+data&&setSearchData(data.search?.edges)
 
 
   },[data])
 
-  useEffect(()=>{
-console.log(searchData)    
-      },[searchData])
-
   if(searchData.length){
-      console.log(searchData.map(child=><Item payload={{content:child.node.createdAt}} >{child.node.name}</Item>))
   return  (
   
   <MasterDetail>
