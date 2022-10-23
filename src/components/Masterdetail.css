@@ -26,7 +26,19 @@
 .listItem:hover{
     background-color: aqua;
 }
+
+
 .detail{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 8px;
     width: 50%;
-    background-color: blueviolet;
+    background-color: #eee;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detailChild{
+    font-size: 3rem;
+
 }

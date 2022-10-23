@@ -17,7 +17,7 @@ export interface DetailProps {
 
 export const Detail: React.FC<DetailProps> = (props) => {
 	const {detail}=useDetailContext()
-	return <div>{props.children(detail.payload)}</div>
+	return <div className='detailChild'>{props.children(detail.payload)}</div>
 }
 
 export interface MasterDetailProps {
