@@ -1,22 +1,23 @@
 
-export const transformValue = (val: unknown ):unknown => {
-const solution={...val as Object}
-const a:Record<string, unknown>={};
-for (const [key,value] of Object.entries(solution) ){
- 
-        a[key]=doTransformation(value)
-    
-}
+type arrayElement=string| number|arrayElement[]
 
-    return a;
-}
 
-const doTransformation=(value:(string|number|Object)):(string|number|Object)=>{
-    if(typeof value==="number")
-    return value+1
-    else if (typeof value==="string")
-    return value+" AE"
-    else {
-        return Object.values(value).map(child=>doTransformation(child))
+export const transformValue = (val: unknown): unknown => {
+    const clonedVal={...val as Record<string,unknown>}
+    const solution:Record<string,unknown>={}
+    for(const key in clonedVal){
+        solution[key]=doTransformation(clonedVal[key] as arrayElement)
+    }
+    return solution;
+}
+const doTransformation=(arrayElement:arrayElement):arrayElement=>{
+    if (typeof arrayElement ==='number')
+    return arrayElement+1;
+    else if(typeof arrayElement==='string')
+    return arrayElement+ ' AE'
+    else 
+    {
+        const newArray=arrayElement.map(entry=>doTransformation(entry))
+        return newArray
     }
 }

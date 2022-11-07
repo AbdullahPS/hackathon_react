@@ -1,0 +1,19 @@
+.ListItem{
+    background-color: var(--grayWhite);
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    margin: 2px 0;
+    transition: 0.4s ease-in-out;
+    }
+.ListItem:hover{
+    background-color:var(--lightGray) ;
+    transform: scale(1.1);
+}
+.ListItem___text{
+    font-size:16px;
+     color: var(--black);
+
+}

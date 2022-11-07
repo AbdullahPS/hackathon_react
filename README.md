@@ -33,4 +33,3 @@ yarn start
 ## Tasks
 
 Find the tasks in `src/App.tsx`
-# hacakton

@@ -1,5 +1,11 @@
 /* sample css, use what ever solution you like for styling */
 
+:root {
+  --lightGray:#eee ;
+  --black:#000;
+  --grayWhite:#e2dbd7;
+}
+
 body {
   background: #1b1b1b;
   color: #fff;

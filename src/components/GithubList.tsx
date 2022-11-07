@@ -1,41 +1,40 @@
 import React, { useEffect, useState } from 'react';
-
 import { useQuery } from 'react-apollo-hooks';
-import { Detail, Item, MasterDetail, Payload } from './MasterDetail';
-import {fbQuery} from './queries/query'
-
-interface INode{
-createdAt:Payload,
-name:string
-
-}
-interface IChild{
-  node:INode
-}
+import { fbQuery } from '../queries/queries';
+import { Detail, Item, MasterDetail } from './MasterDetail';
 export const GitHubList: React.FC = () => {
+
+
+  interface node{
+    node:searchArray
+  }
+
+  interface searchArray{
+    createdAt:string,
+    name:string,
+    url:string
+
+  }
+
   const {data,loading,error}=useQuery(fbQuery)
-  const [searchData,setSearchData]=useState<IChild[]>([]);
+  const [fbList,setfbList]=useState<node[]>([]);
+
   useEffect(()=>{
-data&&setSearchData(data.search?.edges)
-
-
+data && setfbList(data.search.edges)
   },[data])
 
-  if(searchData.length){
-  return  (
-  
-  <MasterDetail>
-    {[...searchData.map(child=><Item payload={{content:child.node.createdAt}} >{child.node.name}</Item>),<Detail>
-      {(payload) => payload.content}</Detail>].map(child=>child)}
-  
-      </MasterDetail>
-      
-);}
- 
+if(data&& fbList.length &&!error)
+  return <MasterDetail>
+     
+    {[...fbList.map(child=><Item payload={{content:`URL:${child.node.url} Created At:${child.node.createdAt}`}}>{child.node.name}</Item>),<Detail>{(payload) => payload.content}</Detail>].map(child=>child)}
+  </MasterDetail>
 
- 
-  else if (loading)
+if(loading)
   return <div>Loading....</div>
 
- else  return <div>something wrong happened</div>
+else
+ return <div>Ooops.... something went wrong</div>
+
 };
+
+

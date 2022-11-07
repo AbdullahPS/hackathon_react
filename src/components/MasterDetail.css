@@ -1,0 +1,20 @@
+.masterdetail__container {
+    display: flex;
+    width: 100%;
+    background-color: var(--lightGray);
+    border: 1 px solid var(--black);
+}
+.masterdetail__list{
+width: 50%;
+
+}
+
+
+.masterdetail__detail{
+    width: 50%;    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+
+}

@@ -1,8 +1,7 @@
-import React, {  useState } from "react";
-import { DetailContext,defaulstate } from "./components/context/context";
+import React from "react";
 import "./App.css";
 import { GitHubList } from "./components/GithubList";
-import { MasterDetail, Item, Detail, Payload } from "./components/MasterDetail";
+import { MasterDetail, Item, Detail } from "./components/MasterDetail";
 import { transformValue } from "./Question3/jsQuestion";
 
 const question3Logging = () => {
@@ -18,10 +17,7 @@ const question3Logging = () => {
   console.log(JSON.stringify(transformedObject));
 };
 
-const App = () => {
- 
-
-return(
+const App = () => (
   <>
     <h1>Welcome to the Frontend Hackathon</h1>
     <h2>Task 1 - React</h2>
@@ -48,7 +44,7 @@ return(
       <Item payload={{content: "Hello Peers"}}>Intro</Item>
       <Item payload={{content: "Welcome to Cool Company"}}>Welcome</Item>
       <Detail>
-      {(payload) => payload.content}
+        {(payload) => payload.content}
       </Detail>
     </MasterDetail>
     <h2>Task 2 - Graphql</h2>
@@ -69,7 +65,7 @@ return(
       complete Task 1 provide the same functionality without the MasterDetail
       component.
     </p>
-<GitHubList></GitHubList>
+    <GitHubList />
     <h2>Task 3 - Javascript</h2>
     <p>
       Implement a function which takes a arbitrary nested JS Object and do the
@@ -129,5 +125,5 @@ return(
     <h2>Best of Luck 🚀</h2>
   </>
 );
-}
+
 export default App;
